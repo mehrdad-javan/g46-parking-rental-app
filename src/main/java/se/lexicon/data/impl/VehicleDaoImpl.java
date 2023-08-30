@@ -40,7 +40,7 @@ public class VehicleDaoImpl implements VehicleDao {
     @Override
     public boolean remove(String licensePlate) {
         Optional<Vehicle> vehicleOptional = find(licensePlate);
-        if (vehicleOptional.isEmpty()){
+        if (vehicleOptional.isEmpty()) {
             return false;
         } else {
             storage.remove(vehicleOptional.get());
@@ -54,7 +54,14 @@ public class VehicleDaoImpl implements VehicleDao {
     }
 
     @Override
-    public void update(Vehicle data) {
-        // todo: implement in the lecture part 2
+    public void update(Vehicle toUpdate) {
+        if (toUpdate == null) throw new IllegalArgumentException("Vehicle Data is null.");
+        Optional<Vehicle> existingVehicleOptional = find(toUpdate.getLicensePlate());
+        if (existingVehicleOptional.isEmpty()) throw new IllegalArgumentException("License Plate not found.");
+        Vehicle originalData = existingVehicleOptional.get();
+        int index = storage.indexOf(originalData);
+        if (index == -1) throw new IllegalArgumentException("Existing vehicle not found in the storage.");
+        storage.set(index, toUpdate);
     }
+
 }
