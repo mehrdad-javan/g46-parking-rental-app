@@ -12,6 +12,9 @@ public class VehicleDaoImpl implements VehicleDao {
 
     private List<Vehicle> storage;
 
+    //todo: implement singleton design pattern
+
+
     public VehicleDaoImpl() {
         storage = new ArrayList<>();
     }

@@ -7,6 +7,8 @@ import java.util.Optional;
 
 public class ReservationDaoImpl implements ParkingSpotDao {
 
+    //todo: implement singleton design pattern
+
 
 
     @Override

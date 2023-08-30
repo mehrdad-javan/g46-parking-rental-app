@@ -7,6 +7,9 @@ import java.util.Optional;
 
 public class ParkingSpotDaoImpl implements ParkingSpotDao {
 
+    //todo: implement singleton design pattern
+
+
     @Override
     public ParkingSpot create(ParkingSpot parkingSpot) {
         // todo: implement the method
